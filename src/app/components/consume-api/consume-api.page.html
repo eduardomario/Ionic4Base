@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-menu-button>
+        <ion-icon name="more"></ion-icon>
+      </ion-menu-button>
+    </ion-buttons>
+    <ion-title>consumeAPI</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="jokeService">
+    <ion-label>{{joke}}</ion-label>
+    <ion-button (click)="callService()">Joke</ion-button>
+  </div>
+</ion-content>

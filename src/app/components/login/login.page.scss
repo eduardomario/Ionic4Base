@@ -1,0 +1,36 @@
+.userForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 98%;
+}
+
+.userInputs {
+    width: 95%;
+}
+
+.loginButton {
+    width: 98%;
+    margin: auto;
+}
+
+.loginButtonArea {
+    position: sticky;
+    bottom: 3px;
+}
+
+.loginInputs {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+}
+
+.loginPage {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 10px;
+}
