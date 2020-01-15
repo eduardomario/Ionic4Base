@@ -3,17 +3,17 @@ export class MenuModel {
         {
           title: 'Home',
           url: 'tab/home',
-          icon: 'person'
+          icon: 'home'
         },
         {
           title: 'QR Scan',
           url: 'tab/qr-scan',
-          icon: 'help-circle-outline'
+          icon: 'qr-scanner'
         },
         {
           title: 'ConsumeAPI',
           url: 'tab/consume',
-          icon: 'person-add'
+          icon: 'cloudy'
         }
       ];
 }
