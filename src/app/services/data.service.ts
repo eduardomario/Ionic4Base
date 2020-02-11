@@ -38,7 +38,6 @@ export class DataService {
 
   getDarkMode() {
     const darkMode = (this.db.get('darkMode') === 'true');
-    console.info('DarkMode', darkMode);
     this.darkMode(darkMode);
     return darkMode;
   }
