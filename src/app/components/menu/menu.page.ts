@@ -16,7 +16,7 @@ export class MenuPage implements OnInit {
   selectedPath = '';
   constructor(
     public router: Router,
-    private data: DataService,
+    protected data: DataService,
     private alertCtrl: AlertController) {
       this.router.events.subscribe((event: RouterEvent) => {
         if (event && event.url) {
@@ -29,7 +29,7 @@ export class MenuPage implements OnInit {
   }
 
   logout() {
-    this.data.setIsLogged(false);
+    this.data.setIsLoggedEvent(false);
     this.router.navigate(['']);
   }
 

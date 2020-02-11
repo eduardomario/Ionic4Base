@@ -1,4 +1,4 @@
-.userForm {
+.user-form {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -6,31 +6,38 @@
     width: 98%;
 }
 
-.userInputs {
+.user-inputs {
     width: 95%;
 }
 
-.loginButton {
+.login-button {
     width: 98%;
     margin: auto;
 }
 
-.loginButtonArea {
+.login-button-area {
     position: sticky;
     bottom: 3px;
 }
 
-.loginInputs {
+.login-inputs {
     display: flex;
     align-items: center;
     justify-content: flex-start;
     flex-direction: row;
 }
 
-.loginPage {
+.login-page {
     display: flex;
     align-self: center;
     justify-content: center;
     flex-direction: column;
     margin-top: 10px;
+}
+
+.dark-mode {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
