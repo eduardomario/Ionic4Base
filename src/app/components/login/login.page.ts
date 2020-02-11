@@ -19,7 +19,7 @@ export class LoginPage implements OnInit {
   constructor(
     private fb: FormBuilder,
     public router: Router,
-    private data: DataService,
+    protected data: DataService,
     private alertCtrl: AlertController
     ) {
     this.loginForm = this.fb.group({
@@ -36,7 +36,7 @@ export class LoginPage implements OnInit {
   }
 
   login() {
-    this.data.setIsLogged(true);
+    this.data.setIsLoggedEvent(true);
     this.router.navigate(['menu/tab/home'], { replaceUrl: true });
   }
 

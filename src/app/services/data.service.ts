@@ -1,22 +1,45 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
+import { DbService } from './db/db.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
 
-  constructor() { }
+  constructor(
+    private db: DbService
+  ) { }
 
-  public isLogged: boolean;
-  public isLoggedEvent = new Subject<boolean>();
+  private isLogged: boolean;
+  private isLoggedEvent = new Subject<boolean>();
 
   getIsLogged() {
+    return this.isLogged;
+  }
+
+  getIsLoggedEvent() {
     return this.isLoggedEvent.asObservable();
   }
 
-  setIsLogged(isLogged: boolean) {
+  setIsLoggedEvent(isLogged: boolean) {
       this.isLogged = isLogged;
       this.isLoggedEvent.next(isLogged);
+  }
+
+  darkMode(event: boolean) {
+    document.body.classList.toggle('dark', event);
+  }
+
+  setDarkMode(active: boolean) {
+    this.db.set('darkMode', active);
+    this.darkMode(active);
+  }
+
+  getDarkMode() {
+    const darkMode = (this.db.get('darkMode') === 'true');
+    console.info('DarkMode', darkMode);
+    this.darkMode(darkMode);
+    return darkMode;
   }
 }
