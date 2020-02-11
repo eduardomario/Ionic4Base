@@ -4,6 +4,7 @@ import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
+import { DataService } from './services/data.service';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,8 @@ export class AppComponent {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private screenOrientation: ScreenOrientation,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    private data: DataService,
   ) {
     this.initializeApp();
   }
@@ -28,5 +30,6 @@ export class AppComponent {
         this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
       }
     });
+    this.data.getDarkMode();
   }
 }

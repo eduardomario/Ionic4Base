@@ -16,7 +16,6 @@ const routes: Routes = [
       {
         path: 'tab',
         loadChildren: '../tabs/tabs.module#TabsPageModule',
-        // canActivate: [LoginGuard]
       },
     ]
   }
