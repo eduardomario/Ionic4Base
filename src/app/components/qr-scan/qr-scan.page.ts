@@ -58,6 +58,10 @@ export class QrScanPage implements OnInit {
           case permissionStatus.DENIED_ALWAYS:
             console.log('Permission permanently to use the storage');
             break;
+          default:
+            console.log('Permission not requested to use the storage - ask');
+            this.askPermission();
+            break;
         }
       }).catch(e => console.error(e));
   }
