@@ -17,9 +17,9 @@
           </ion-menu-toggle>
           <ion-item>
             <ion-icon name="star-outline" slot="start"></ion-icon>
-            <ion-label *ngIf="data.getDarkMode()">Dark Mode</ion-label>
-            <ion-label *ngIf="!data.getDarkMode()">Light Mode</ion-label>
-            <ion-toggle (ionChange)="data.setDarkMode($event.detail.checked)" checked="{{data.getDarkMode()}}"></ion-toggle>
+            <ion-label *ngIf="data.getWindowMode()">Dark Mode</ion-label>
+            <ion-label *ngIf="!data.getWindowMode()">Light Mode</ion-label>
+            <ion-toggle (ionChange)="data.setDarkMode($event.detail.checked)" checked="{{data.getWindowMode()}}"></ion-toggle>
           </ion-item>
           <ion-menu-toggle>
             <ion-item button (click)="showAlert()">

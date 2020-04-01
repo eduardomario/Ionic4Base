@@ -2,9 +2,9 @@
   <ion-toolbar>
     <ion-buttons slot="end">
       <div class="dark-mode">
-        <ion-label *ngIf="data.getDarkMode()">Dark Mode</ion-label>
-        <ion-label *ngIf="!data.getDarkMode()">Light Mode</ion-label>
-        <ion-toggle (ionChange)="data.setDarkMode($event.detail.checked)" checked="{{data.getDarkMode()}}"></ion-toggle>
+        <ion-label *ngIf="data.getWindowMode()">Dark Mode</ion-label>
+        <ion-label *ngIf="!data.getWindowMode()">Light Mode</ion-label>
+        <ion-toggle (ionChange)="data.setDarkMode($event.detail.checked)" checked="{{data.getWindowMode()}}"></ion-toggle>
       </div>
     </ion-buttons>
     <ion-title>login</ion-title>
