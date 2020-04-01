@@ -1,21 +1,24 @@
 import { Injectable } from '@angular/core';
+import { Storage } from '@ionic/storage';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DbService {
 
-  constructor() { }
+  constructor(
+    private storage: Storage
+  ) { }
 
   get(key) {
-    return localStorage.getItem(key);
+    return this.storage.get(key);
   }
 
   set(key, item) {
-    localStorage.setItem(key, item);
+    this.storage.set(key, item);
   }
 
   remove(key) {
-    localStorage.removeItem(key);
+    this.storage.remove(key);
   }
 }
