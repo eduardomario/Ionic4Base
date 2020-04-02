@@ -18,6 +18,7 @@
 .login-button-area {
     position: sticky;
     bottom: 3px;
+    justify-content: center;
 }
 
 .login-inputs {
@@ -40,4 +41,25 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+}
+
+.login-page-lg {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 90px auto;
+    width: 30%;
+}
+
+.user-form-lg {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-button-lg {
+    width: 30%;
+    margin: auto;
 }
