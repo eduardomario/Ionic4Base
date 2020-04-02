@@ -45,3 +45,20 @@ mat,
 .text-center {
   text-align: center !important;
 }
+
+ion-icon {
+    margin-right: 5px;
+}
+
+div.qr-code-generator {
+    max-width: 300px;
+    margin: 10px auto 10px;
+    > img {
+        max-width: 100%;
+        max-height: 100%;
+    }
+    > canvas {
+        max-width: 100%;
+        max-height: 100%;
+    }
+}
