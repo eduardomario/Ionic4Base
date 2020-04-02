@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { TabsPage } from './tabs.page';
 import { HomePageModule } from '../home/home.module';
+import { LoadingModule } from 'src/app/components/loading/loading.module';
 
 const routes: Routes = [
   {
@@ -56,6 +57,7 @@ const routes: Routes = [
     IonicModule,
     HomePageModule,
     RouterModule.forChild(routes),
+    LoadingModule
   ],
   declarations: [TabsPage]
 })

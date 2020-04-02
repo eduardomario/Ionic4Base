@@ -13,6 +13,7 @@ export class DataService {
 
   private isLogged: boolean;
   private isLoggedEvent = new Subject<boolean>();
+  private isLoadingEvent = new Subject<boolean>();
   private dark: boolean;
 
   getIsLogged() {
@@ -26,6 +27,14 @@ export class DataService {
   setIsLoggedEvent(isLogged: boolean) {
       this.isLogged = isLogged;
       this.isLoggedEvent.next(isLogged);
+  }
+
+  getIsLoadingEvent() {
+    return this.isLoadingEvent.asObservable();
+  }
+
+  setIsLoadingEvent(isLoading: boolean) {
+      this.isLoadingEvent.next(isLoading);
   }
 
   darkMode(event: boolean) {
