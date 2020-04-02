@@ -13,6 +13,8 @@ export class DataService {
 
   private isLogged: boolean;
   private isLoggedEvent = new Subject<boolean>();
+  private isLoadingEvent = new Subject<boolean>();
+  private dark: boolean;
 
   getIsLogged() {
     return this.isLogged;
@@ -27,8 +29,17 @@ export class DataService {
       this.isLoggedEvent.next(isLogged);
   }
 
+  getIsLoadingEvent() {
+    return this.isLoadingEvent.asObservable();
+  }
+
+  setIsLoadingEvent(isLoading: boolean) {
+      this.isLoadingEvent.next(isLoading);
+  }
+
   darkMode(event: boolean) {
     document.body.classList.toggle('dark', event);
+    this.dark = event;
   }
 
   setDarkMode(active: boolean) {
@@ -37,9 +48,15 @@ export class DataService {
   }
 
   getDarkMode() {
-    const darkMode = (this.db.get('darkMode') === 'true');
-    console.info('DarkMode', darkMode);
-    this.darkMode(darkMode);
-    return darkMode;
+    this.db.get('darkMode').then(value => {
+      value === null ?
+      this.dark = false :
+      this.dark = value;
+      this.darkMode(this.dark);
+    });
+  }
+
+  getWindowMode() {
+    return this.dark;
   }
 }

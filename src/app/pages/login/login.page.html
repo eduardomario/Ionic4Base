@@ -1,0 +1,94 @@
+<app-loading></app-loading>
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <div class="dark-mode">
+        <ion-label *ngIf="data.getWindowMode()">Dark Mode</ion-label>
+        <ion-label *ngIf="!data.getWindowMode()">Light Mode</ion-label>
+        <ion-toggle (ionChange)="data.setDarkMode($event.detail.checked)" checked="{{data.getWindowMode()}}"></ion-toggle>
+      </div>
+    </ion-buttons>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="login-page d-lg-none">
+    <form [formGroup]="loginForm">
+      <ion-list class="user-form">
+        <ion-item class="user-inputs">
+          <ion-label position="stacked">Correo electrónico</ion-label>
+          <div class="login-inputs">
+            <ion-icon name="person"></ion-icon>
+            <ion-input formControlName="user" type="email" maxlength="50" class="normal-transform-input"></ion-input>
+          </div>
+        </ion-item>
+        <ion-text color="danger" class="error-message"
+        *ngIf="!loginForm?.controls.user?.valid && loginForm?.controls.user?.touched && loginForm?.controls.user?.hasError('required')">
+          El usuario es requerido
+        </ion-text>
+        <ion-text color="danger" class="error-message"
+        *ngIf="!loginForm?.controls.user?.valid && loginForm?.controls.user?.touched && !loginForm?.controls.user?.hasError('required')">
+          El usuario es incorrecto
+        </ion-text>
+        <ion-item class="user-inputs">
+          <ion-label position="stacked">Contraseña</ion-label>
+          <div class="login-inputs">
+            <ion-icon name="lock"></ion-icon>
+            <ion-input formControlName="password" type="password" clearOnEdit="false" maxlength="50" class="normal-transform-input"></ion-input>
+          </div>
+        </ion-item>
+        <ion-text color="danger" class="error-message"
+        *ngIf="!loginForm?.controls.password?.valid && loginForm?.controls.password?.touched && loginForm?.controls.password?.hasError('required')">
+          La contraseña es requerida
+        </ion-text>
+        <ion-text color="danger" class="error-message"
+        *ngIf="!loginForm?.controls.password?.valid && loginForm?.controls.password?.touched && !loginForm?.controls.password?.hasError('required')">
+          La contraseña debe tener mínimo 8 caracteres
+        </ion-text>
+      </ion-list>
+    </form>
+  </div>
+  <div class="login-page-lg d-none d-lg-flex">
+    <form [formGroup]="loginForm">
+      <ion-list class="user-form-lg">
+        <ion-item class="user-inputs">
+          <ion-label position="stacked">Correo electrónico</ion-label>
+          <div class="login-inputs">
+            <ion-icon name="person"></ion-icon>
+            <ion-input formControlName="user" type="email" maxlength="50" class="normal-transform-input"></ion-input>
+          </div>
+        </ion-item>
+        <ion-text color="danger" class="error-message"
+        *ngIf="!loginForm?.controls.user?.valid && loginForm?.controls.user?.touched && loginForm?.controls.user?.hasError('required')">
+          El usuario es requerido
+        </ion-text>
+        <ion-text color="danger" class="error-message"
+        *ngIf="!loginForm?.controls.user?.valid && loginForm?.controls.user?.touched && !loginForm?.controls.user?.hasError('required')">
+          El usuario es incorrecto
+        </ion-text>
+        <ion-item class="user-inputs">
+          <ion-label position="stacked">Contraseña</ion-label>
+          <div class="login-inputs">
+            <ion-icon name="lock"></ion-icon>
+            <ion-input formControlName="password" type="password" clearOnEdit="false" maxlength="50" class="normal-transform-input"></ion-input>
+          </div>
+        </ion-item>
+        <ion-text color="danger" class="error-message"
+        *ngIf="!loginForm?.controls.password?.valid && loginForm?.controls.password?.touched && loginForm?.controls.password?.hasError('required')">
+          La contraseña es requerida
+        </ion-text>
+        <ion-text color="danger" class="error-message"
+        *ngIf="!loginForm?.controls.password?.valid && loginForm?.controls.password?.touched && !loginForm?.controls.password?.hasError('required')">
+          La contraseña debe tener mínimo 8 caracteres
+        </ion-text>
+      </ion-list>
+    </form>
+  </div>
+  <div class="login-button-area d-none d-lg-flex">
+    <ion-button expand="block" (click)="login()" [disabled]="!loginForm.valid" class="login-button-lg">Entrar</ion-button>
+  </div>
+</ion-content>
+<div class="login-button-area d-lg-none">
+  <ion-button expand="full" (click)="login()" [disabled]="!loginForm.valid" class="login-button">Entrar</ion-button>
+</div>
