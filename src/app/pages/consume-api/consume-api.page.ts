@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ConsumeService } from 'src/app/services/consume.service';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-consume-api',
@@ -9,7 +10,10 @@ import { ConsumeService } from 'src/app/services/consume.service';
 export class ConsumeAPIPage implements OnInit {
 
   joke: string;
-  constructor(private consume: ConsumeService) {
+  constructor(
+    private data: DataService,
+    private consume: ConsumeService
+  ) {
 
   }
 
@@ -18,7 +22,9 @@ export class ConsumeAPIPage implements OnInit {
   }
 
   callService() {
+    this.data.setIsLoadingEvent(true);
     this.consume.getJoke().subscribe(resp => {
+      this.data.setIsLoadingEvent(false);
       console.log(resp);
       this.joke = resp.value.joke;
     });

@@ -35,8 +35,12 @@ export class LoginPage implements OnInit {
   }
 
   login() {
-    this.data.setIsLoggedEvent(true);
-    this.router.navigate(['menu/tab/home'], { replaceUrl: true });
+    this.data.setIsLoadingEvent(true);
+    setTimeout(() => {
+      this.data.setIsLoadingEvent(false);
+      this.data.setIsLoggedEvent(true);
+      this.router.navigate(['menu/tab/home'], { replaceUrl: true });
+    }, 2000);
   }
 
   regirtro() {
