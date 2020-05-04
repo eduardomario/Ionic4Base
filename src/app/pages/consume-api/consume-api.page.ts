@@ -30,4 +30,16 @@ export class ConsumeAPIPage implements OnInit {
     });
   }
 
+  doRefresh(event) {
+    console.log('Begin async operation');
+
+    setTimeout(() => {
+      this.consume.getJoke().subscribe(resp => {
+        console.log(resp);
+        event.target.complete();
+        this.joke = resp.value.joke;
+      });
+    }, 2000);
+  }
+
 }
